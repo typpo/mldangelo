@@ -1,3 +1,4 @@
+import request from 'request';
 import _pick from 'lodash/pick';
 import GitHubApi from 'github';
 
@@ -51,6 +52,23 @@ const routes = (app) => {
       } else {
         send();
       }
+    });
+  });
+
+  app.get('/api/posts',(req,res) => {
+    const url = 'https://medium.com/@mdangelo/latest?format=json';
+    request({
+      url: url,
+      json: true,
+    }, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+         res.write(body);
+      }
+      else {
+        debug('express')(error);
+        res.write(JSON.stringify({}));
+      }
+      res.end();
     });
   });
 
