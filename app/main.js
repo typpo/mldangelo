@@ -6,6 +6,7 @@ import App from './App';
 
 import About from './components/About';
 import Projects from './components/Projects';
+import Posts from './components/Posts';
 import Resume from './components/Resume';
 import Stats from './components/Stats';
 import Contact from './components/Contact';
@@ -27,6 +28,7 @@ ReactDOM.render(
       <IndexRoute component={About}/>
       <Route path="/resume" component={Resume}/>
       <Route path="/projects" component={Projects}/>
+      <Route path="/posts" component={Posts}/>
       <Route path="/stats" component={Stats}/>
       <Route path="/contact" component={Contact}/>
     </Route>
